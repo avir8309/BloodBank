@@ -120,8 +120,7 @@ const getInventoryHospitalController = async (req, res) => {
     const inventory = await inventoryModel
       .find(req.body.filters)
       .populate("donar")
-      .populate("hospital")
-      .populate("organisation")
+      
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
