@@ -7,24 +7,7 @@ const bloodGroupDetailsContoller = async (req, res) => {
     const bloodGroupData = [];
     const organisation = new mongoose.Types.ObjectId(req.body.userId);
     //get single blood group
-    await Promise.all(
-      bloodGroups.map(async (bloodGroup) => {
-        //COunt TOTAL IN
-        const totalIn = await inventoryModel.aggregate([
-          {
-            $match: {
-              bloodGroup: bloodGroup,
-              inventoryType: "in",
-              organisation,
-            },
-          },
-          {
-            $group: {
-              _id: null,
-              total: { $sum: "$quantity" },
-            },
-          },
-        ]);
+    
         //COunt TOTAL OUT
         const totalOut = await inventoryModel.aggregate([
           {
