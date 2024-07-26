@@ -10,7 +10,7 @@ const HomePage = () => {
   const { loading, error } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
 
-  //get function
+  //get function api call
   const getBloodRecords = async () => {
     try {
       const { data } = await API.get("/inventory/get-inventory");
@@ -67,7 +67,6 @@ const HomePage = () => {
                 ))}
               </tbody>
             </table>
-
             <Modal />
           </div>
         </>
