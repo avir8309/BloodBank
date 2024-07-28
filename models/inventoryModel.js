@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// inventory model
 const inventorySchema = new mongoose.Schema(
   {
     inventoryType: {
